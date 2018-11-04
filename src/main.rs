@@ -9,6 +9,7 @@ fn main() {
     mandelbrot2();
 }
 
+#[inline]
 fn mandelbrot2() {
     let max_iterations = 1000;
     let range_x = (-2.1, 0.5); // (-2.1, 0.5);
@@ -41,7 +42,7 @@ fn mandelbrot2() {
                 i = t;
             }
 
-            *n = i as u8;
+            *n = -i as u8;
         });
 
     let fout = std::fs::File::create("fractal.png").expect("Could not create outputfile");
